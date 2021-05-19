@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>自主學習--音遊譜面製作</title>
+		<meta charset="UTF-8"/>
+		<link  rel="stylesheet" href="css/mystyle.css" type='text/css'>
+		<canvas id="mycanvas"></canvas>
+	</head>
+	<body>
+		<input type="file" accept=".mp3" id="fileup">
+		<audio id='audio'></audio>
+		<script>
+			fileup=document.getElementById('fileup')
+
+			fileup.addEventListener('change',uping)
+	        function uping() {
+	            let objUrl = getObjectURL(this.files[0]);
+	            audio01=document.getElementById('audio')
+	            audio01.setAttribute("src", objUrl);
+	        }
+	        function getObjectURL(file) {
+	            var url = null;
+	            if (window.createObjectURL != undefined) { // basic
+	                url = window.createObjectURL(file);
+	            } else if (window.URL != undefined) { // mozilla(firefox)
+	                url = window.URL.createObjectURL(file);
+	            } else if (window.webkitURL != undefined) { // webkit or chrome
+	                url = window.webkitURL.createObjectURL(file);
+	            }
+	            return url;
+	        }
+	    </script>
+		<script src="./javascript/mymodules.js"></script>
+		<script src="./javascript/mythings.js"></script>		
+		<script src="./javascript/myscript.js"></script>
+
+	</body>
+</html>
